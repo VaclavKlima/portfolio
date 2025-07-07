@@ -51,8 +51,18 @@ body, html {
 }
 
 @keyframes flicker {
-    0%, 100% { opacity: 0.03; }
-    50% { opacity: 0.06; }
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .crt-inner {
@@ -62,3 +72,26 @@ body, html {
     background: radial-gradient(ellipse at center, rgba(190, 154, 0, 0) 60%, rgba(0,0,0,0.6) 100%);
 }
 
+.hover-background {
+    background: linear-gradient(to right, #282800 50%, black 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    transition: background-position 0.15s ease 0.4s;
+    animation-delay: 1s;
+}
+
+.hover-background:hover {
+    background-position: left;
+}
+
+button:focus:before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 110%;
+    height: 110%;
+    background-color: deepskyblue;
+    clip: revert;
+
+}
